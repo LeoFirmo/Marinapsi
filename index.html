@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marina Marchesotti | Psicóloga e Psicanalista em Belo Horizonte</title>
+    <meta name="description" content="Marina Marchesotti - Psicóloga e Psicanalista em Belo Horizonte (CRP 04/59243). Atendimento presencial e online para adolescentes e adultos. Agende sua consulta.">
+    <meta name="keywords" content="Psicóloga, Psicanalista, Terapia Belo Horizonte, Terapia Online, TDAH, Ansiedade, Depressão, Marina Marchesotti">
+    <meta name="author" content="Marina Marchesotti">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Config for Custom Colors & Fonts -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4A5D4E', // Verde Sálvia escuro
+                        secondary: '#D9C5B2', // Areia/Bege
+                        accent: '#849C8A', // Verde Sálvia claro
+                        dark: '#2D3748',
+                        light: '#F7F5F0', // Fundo off-white
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Lato"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles */
+        body { font-family: 'Lato', sans-serif; background-color: #F7F5F0; color: #2D3748; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', serif; }
+        
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.15);
+            z-index: 1000;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 6px 20px rgba(0,0,0,0.2);
+            color: #FFF;
+        }
+
+        /* FAQ Accordion */
+        details > summary { list-style: none; cursor: pointer; }
+        details > summary::-webkit-details-marker { display: none; }
+        details[open] summary ~ * { animation: sweep .5s ease-in-out; }
+        @keyframes sweep {
+            0%    {opacity: 0; margin-top: -10px}
+            100%  {opacity: 1; margin-top: 0px}
+        }
+        
+        /* Mobile Menu Transition */
+        #mobile-menu { transition: max-height 0.3s ease-in-out; max-height: 0; overflow: hidden; }
+        #mobile-menu.open { max-height: 400px; }
+    </style>
+</head>
+<body class="antialiased selection:bg-primary selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="bg-light/90 backdrop-blur-md fixed w-full top-0 z-50 border-b border-secondary/30 transition-all duration-300 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="text-2xl font-serif font-bold text-primary tracking-wide">Marina Marchesotti</a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="#sobre" class="text-dark hover:text-primary transition-colors font-medium">Sobre Mim</a>
+                    <a href="#servicos" class="text-dark hover:text-primary transition-colors font-medium">Especialidades</a>
+                    <a href="#consultorio" class="text-dark hover:text-primary transition-colors font-medium">O Consultório</a>
+                    <a href="#avaliacoes" class="text-dark hover:text-primary transition-colors font-medium">Avaliações</a>
+                    <a href="https://www.doctoralia.com.br/marina-marchesotti/psicologo-psicanalista/belo-horizonte#highlight-calendar" target="_blank" class="bg-primary text-white px-6 py-2 rounded-full font-medium hover:bg-primary/90 transition-all shadow-md hover:shadow-lg">Agendar Consulta</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-primary hover:text-dark focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden bg-light border-b border-secondary/30 shadow-inner">
+            <div class="px-2 pt-2 pb-5 space-y-1 sm:px-3 flex flex-col">
+                <a href="#sobre" class="mobile-link block px-3 py-2 text-dark hover:text-primary hover:bg-secondary/20 rounded-md font-medium">Sobre Mim</a>
+                <a href="#servicos" class="mobile-link block px-3 py-2 text-dark hover:text-primary hover:bg-secondary/20 rounded-md font-medium">Especialidades</a>
+                <a href="#consultorio" class="mobile-link block px-3 py-2 text-dark hover:text-primary hover:bg-secondary/20 rounded-md font-medium">O Consultório</a>
+                <a href="#avaliacoes" class="mobile-link block px-3 py-2 text-dark hover:text-primary hover:bg-secondary/20 rounded-md font-medium">Avaliações</a>
+                <a href="https://www.doctoralia.com.br/marina-marchesotti/psicologo-psicanalista/belo-horizonte#highlight-calendar" target="_blank" class="block w-full text-center mt-4 bg-primary text-white px-5 py-3 rounded-full font-medium hover:bg-primary/90 shadow-md">Agendar Consulta</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <!-- Text Content -->
+                <div class="lg:w-1/2 text-center lg:text-left">
+                    <span class="inline-block py-1 px-3 rounded-full bg-secondary/30 text-primary font-semibold text-sm mb-4 tracking-wider uppercase">Psicóloga & Psicanalista</span>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif text-dark font-bold leading-tight mb-6">
+                        Um espaço de escuta, acolhimento e autodescoberta.
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        Atendimento clínico presencial em Belo Horizonte e online para adolescentes e adultos. Uma jornada guiada pelo respeito à sua história e cuidado com a sua saúde mental.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="https://www.doctoralia.com.br/marina-marchesotti/psicologo-psicanalista/belo-horizonte#highlight-calendar" target="_blank" class="bg-primary text-white px-8 py-3.5 rounded-full font-bold text-lg hover:bg-primary/90 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                            <i class="fa-regular fa-calendar-check"></i> Agendar Sessão
+                        </a>
+                        <a href="#sobre" class="bg-white text-primary border border-secondary px-8 py-3.5 rounded-full font-bold text-lg hover:bg-secondary/20 transition-all flex items-center justify-center">
+                            Conheça meu trabalho
+                        </a>
+                    </div>
+                </div>
+                <!-- Image -->
+                <div class="lg:w-1/2 relative">
+                    <div class="absolute inset-0 bg-secondary rounded-full blur-3xl opacity-30 transform translate-x-10 translate-y-10"></div>
+                    <img src="./banner.png" alt="Marina Marchesotti - Psicóloga" class="relative z-10 w-full h-[500px] object-cover rounded-tl-[80px] rounded-br-[80px] rounded-tr-[20px] rounded-bl-[20px] shadow-2xl border-4 border-white">
+                    
+                    <!-- Floating badge -->
+                    <div class="absolute bottom-10 -left-6 lg:-left-12 bg-white p-4 rounded-2xl shadow-xl z-20 flex items-center gap-4">
+                        <div class="bg-green-100 text-green-600 p-3 rounded-full">
+                            <i class="fa-solid fa-star text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-dark text-lg">5.0 Estrelas</p>
+                            <p class="text-sm text-gray-500">Na Doctoralia</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Mim Section -->
+    <section id="sobre" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row gap-16 items-center">
+                <div class="md:w-5/12 relative hidden md:block">
+                    <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGhhlLoUkN7BqK71xBTHkTrqOYiE6FbYYCNymbSF5JQ3EHJfBytXB_NHmaWef0VNhDnsw286lliD-ZZUhzLw8EL_A9eokJAKkUv7KiV1xOgbzA27QZtBSJ8Ugqw1xJwGDd6h9U=w1900-h1200-k-no" alt="Marina Marchesotti" class="w-full aspect-square object-cover rounded-2xl shadow-lg">
+                    <div class="absolute -bottom-6 -right-6 bg-secondary w-full h-full rounded-2xl -z-10"></div>
+                </div>
+                <div class="md:w-7/12">
+                    <h2 class="text-sm font-bold tracking-widest text-accent uppercase mb-2">Sobre Mim</h2>
+                    <h3 class="text-3xl sm:text-4xl font-serif font-bold text-dark mb-6">Marina Marchesotti</h3>
+                    <p class="text-primary font-medium text-lg mb-4"><i class="fa-solid fa-id-card mr-2"></i>CRP: MG 04/59243</p>
+                    
+                    <div class="space-y-4 text-gray-600 leading-relaxed">
+                        <p>
+                            Sou psicóloga e psicanalista. Atuo clinicamente com atendimento de adolescentes e adultos através de uma escuta profissional, ética e singular de cada caso. 
+                        </p>
+                        <p>
+                            Esse espaço de acolhimento e escuta é orientado pela lógica da privacidade e do respeito e, assim, se faz possível o compartilhamento de sofrimentos, medos, desejos, angústias, sentimentos e afetos.
+                        </p>
+                        <p>
+                            A ótica da psicanálise traz para esse espaço de escuta uma atenção ao inconsciente. A partir desse processo, é possível elaborar sobre suas emoções, relações, repetições, desejos, sonhos e construir um saber sobre si e sua história.
+                        </p>
+                    </div>
+
+                    <h4 class="font-serif font-bold text-xl text-dark mt-8 mb-4">Minha Formação</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-graduation-cap text-accent mt-1 mr-3"></i>
+                            <span class="text-gray-600">Bacharel em Psicologia com ênfase clínica pela PUC Minas.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-certificate text-accent mt-1 mr-3"></i>
+                            <span class="text-gray-600">Especialista em Clínica Psicanalítica na Atualidade pela PUC Minas.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-book-open text-accent mt-1 mr-3"></i>
+                            <span class="text-gray-600">Formação constante em psicanálise.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços e Especialidades -->
+    <section id="servicos" class="py-20 bg-secondary/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-sm font-bold tracking-widest text-accent uppercase mb-2">Serviços</h2>
+                <h3 class="text-3xl sm:text-4xl font-serif font-bold text-dark mb-4">Modalidades de Atendimento</h3>
+                <p class="text-gray-600">Ofereço um ambiente seguro e sigiloso, adaptado para as suas necessidades, seja presencialmente ou no conforto do seu lar.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-16 max-w-4xl mx-auto">
+                <!-- Presencial -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
+                    <div class="w-14 h-14 bg-secondary/30 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-couch text-2xl text-primary"></i>
+                    </div>
+                    <h4 class="text-2xl font-serif font-bold text-dark mb-3">Atendimento Presencial</h4>
+                    <p class="text-gray-600 mb-6">Consultório bem localizado, preparado para receber você com todo o conforto, privacidade e acolhimento necessários para a sua jornada.</p>
+                    <div class="flex justify-between items-center border-t border-gray-100 pt-4">
+                        <span class="font-bold text-primary">Psicanálise / Psicologia</span>
+                        <span class="font-bold text-dark bg-gray-100 px-3 py-1 rounded-lg">R$ 150 / sessão</span>
+                    </div>
+                </div>
+
+                <!-- Online -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
+                    <div class="w-14 h-14 bg-secondary/30 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-laptop-medical text-2xl text-primary"></i>
+                    </div>
+                    <h4 class="text-2xl font-serif font-bold text-dark mb-3">Atendimento Online</h4>
+                    <p class="text-gray-600 mb-6">Teleconsulta realizada via Google Meet, mantendo o mesmo padrão de excelência, ética e sigilo, para pacientes de qualquer lugar.</p>
+                    <div class="flex justify-between items-center border-t border-gray-100 pt-4">
+                        <span class="font-bold text-primary">Teleconsulta</span>
+                        <span class="font-bold text-dark bg-gray-100 px-3 py-1 rounded-lg">R$ 150 / sessão</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Especialidades Tags -->
+            <div class="text-center">
+                <h4 class="font-serif font-bold text-2xl text-dark mb-8">Principais Questões Tratadas</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+                    <!-- Item 1 -->
+                    <div class="bg-white p-4 rounded-2xl shadow-sm border border-secondary/30 flex items-center gap-4 hover:shadow-md transition-shadow text-left">
+                        <div class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-leaf text-primary"></i>
+                        </div>
+                        <span class="font-medium text-dark leading-snug">Angústia</span>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="bg-white p-4 rounded-2xl shadow-sm border border-secondary/30 flex items-center gap-4 hover:shadow-md transition-shadow text-left">
+                        <div class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-leaf text-primary"></i>
+                        </div>
+                        <span class="font-medium text-dark leading-snug">Conflitos de relacionamento</span>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="bg-white p-4 rounded-2xl shadow-sm border border-secondary/30 flex items-center gap-4 hover:shadow-md transition-shadow text-left">
+                        <div class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-leaf text-primary"></i>
+                        </div>
+                        <span class="font-medium text-dark leading-snug">Ataque de pânico / Síndrome do Pânico</span>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="bg-white p-4 rounded-2xl shadow-sm border border-secondary/30 flex items-center gap-4 hover:shadow-md transition-shadow text-left">
+                        <div class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-leaf text-primary"></i>
+                        </div>
+                        <span class="font-medium text-dark leading-snug">Transtorno de Ansiedade Generalizada (TAG)</span>
+                    </div>
+                    <!-- Item 5 -->
+                    <div class="bg-white p-4 rounded-2xl shadow-sm border border-secondary/30 flex items-center gap-4 hover:shadow-md transition-shadow text-left">
+                        <div class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-leaf text-primary"></i>
+                        </div>
+                        <span class="font-medium text-dark leading-snug">Depressão</span>
+                    </div>
+                    <!-- Item 6 -->
+                    <div class="bg-white p-4 rounded-2xl shadow-sm border border-secondary/30 flex items-center gap-4 hover:shadow-md transition-shadow text-left">
+                        <div class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-leaf text-primary"></i>
+                        </div>
+                        <span class="font-medium text-dark leading-snug">TDAH</span>
+                    </div>
+                    <!-- Item 7 -->
+                    <div class="bg-white p-4 rounded-2xl shadow-sm border border-secondary/30 flex items-center gap-4 hover:shadow-md transition-shadow text-left">
+                        <div class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-leaf text-primary"></i>
+                        </div>
+                        <span class="font-medium text-dark leading-snug">Dificuldade na tomada de decisões</span>
+                    </div>
+                    <!-- Item 8 -->
+                    <div class="bg-white p-4 rounded-2xl shadow-sm border border-secondary/30 flex items-center gap-4 hover:shadow-md transition-shadow text-left">
+                        <div class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-leaf text-primary"></i>
+                        </div>
+                        <span class="font-medium text-dark leading-snug">Baixa autoestima / Insegurança</span>
+                    </div>
+                    <!-- Item 9 -->
+                    <div class="bg-white p-4 rounded-2xl shadow-sm border border-secondary/30 flex items-center gap-4 hover:shadow-md transition-shadow text-left">
+                        <div class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-leaf text-primary"></i>
+                        </div>
+                        <span class="font-medium text-dark leading-snug">Transtorno de Personalidade Borderline</span>
+                    </div>
+                    <!-- Item 10 -->
+                    <div class="bg-white p-4 rounded-2xl shadow-sm border border-secondary/30 flex items-center gap-4 hover:shadow-md transition-shadow text-left lg:col-start-2">
+                        <div class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-leaf text-primary"></i>
+                        </div>
+                        <span class="font-medium text-dark leading-snug">Luto</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Planos de Saúde -->
+            <div class="mt-16 bg-primary text-white rounded-3xl p-8 max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between shadow-xl">
+                <div class="mb-4 md:mb-0 text-center md:text-left">
+                    <h4 class="font-serif font-bold text-2xl mb-2"><i class="fa-solid fa-shield-heart mr-2"></i> Convênios Atendidos</h4>
+                    <p class="text-white/80 text-sm max-w-md">Emito recibo para reembolso. Cobertura varia de acordo com o plano. Confirme na etapa de agendamento.</p>
+                </div>
+                <div class="flex flex-wrap gap-4 justify-center">
+                    <span class="bg-white/20 px-4 py-2 rounded-lg font-bold">Amil</span>
+                    <span class="bg-white/20 px-4 py-2 rounded-lg font-bold">Bradesco Saúde</span>
+                    <span class="bg-white/20 px-4 py-2 rounded-lg font-bold">Sul América</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria (Consultório) -->
+    <section id="consultorio" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-sm font-bold tracking-widest text-accent uppercase mb-2">Estrutura</h2>
+                <h3 class="text-3xl sm:text-4xl font-serif font-bold text-dark mb-4">O Consultório</h3>
+                <p class="text-gray-600">Um ambiente pensado nos mínimos detalhes para proporcionar conforto, discrição e paz durante as nossas sessões presenciais.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div class="col-span-2 md:col-span-2 row-span-2 relative group overflow-hidden rounded-2xl">
+                    <img src="https://pixel-p1.s3.sa-east-1.amazonaws.com/doctor/photos/b17e1cc7/b17e1cc7-3f5a-47bf-8def-52d7e870f6e5_large.jpg" alt="Sala de Atendimento" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="relative group overflow-hidden rounded-2xl h-48 md:h-auto">
+                    <img src="https://pixel-p1.s3.sa-east-1.amazonaws.com/doctor/photos/e6d0aa04/e6d0aa04-7991-4b1f-a12d-366cc3eb9430_large.jpg" alt="Detalhe do Consultório" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="relative group overflow-hidden rounded-2xl h-48 md:h-auto">
+                    <img src="https://pixel-p1.s3.sa-east-1.amazonaws.com/doctor/photos/4e32fffb/4e32fffb-afef-4205-9831-f141fc14157e_large.jpg" alt="Decoração" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="relative group overflow-hidden rounded-2xl h-48 md:h-auto">
+                    <img src="https://pixel-p1.s3.sa-east-1.amazonaws.com/doctor/photos/d1a92f40/d1a92f40-5f27-42fe-a9bf-8548f8d9f495_large.jpg" alt="Recepção" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="col-span-1 md:col-span-2 relative group overflow-hidden rounded-2xl h-48 md:h-64">
+                    <img src="https://pixel-p1.s3.sa-east-1.amazonaws.com/doctor/photos/b0b0b4f7/b0b0b4f7-6905-455e-ab9c-a2b18fecee37_large.jpg" alt="Espaço Acolhedor" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section id="avaliacoes" class="py-20 bg-secondary/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-gray-200 pb-6">
+                <div class="max-w-2xl">
+                    <h2 class="text-sm font-bold tracking-widest text-accent uppercase mb-2">Relatos</h2>
+                    <h3 class="text-3xl sm:text-4xl font-serif font-bold text-dark">O que dizem os pacientes</h3>
+                </div>
+                <div class="mt-4 md:mt-0 flex items-center gap-4">
+                    <div class="flex text-yellow-400 text-lg">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <span class="font-bold text-dark text-xl">5.0 <span class="text-base text-gray-500 font-normal">(35 opiniões na Doctoralia)</span></span>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Review 1 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-yellow-400 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 italic mb-6">"Fazem 3 meses que estou com a Marina e estou amando. Me sinto ouvida e acolhida, a Marina é uma profissional excelente e que vem me ajudando demais."</p>
+                    </div>
+                    <div class="flex items-center gap-3 border-t border-gray-50 pt-4 mt-auto">
+                        <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">M</div>
+                        <div>
+                            <p class="font-bold text-dark text-sm">Maria Chaves</p>
+                            <p class="text-xs text-gray-400">Consulta verificada</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-yellow-400 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 italic mb-6">"Faço terapia com a Marina há muito anos. Indico pra todo mundo que conheço porque acho ótima! Ela faz a sessão ser muito tranquila, é sempre muito atenta, empática, consegue me fazer perceber e melhorar aspectos que eu nunca tinha considerado antes."</p>
+                    </div>
+                    <div class="flex items-center gap-3 border-t border-gray-50 pt-4 mt-auto">
+                        <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">B</div>
+                        <div>
+                            <p class="font-bold text-dark text-sm">Beatriz Zica</p>
+                            <p class="text-xs text-gray-400">Consulta verificada</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-yellow-400 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 italic mb-6">"Estou fazendo o acompanhamento com a Marina há um tempo e tem sido um processo de muitas descobertas sobre mim mesmo. Ótima profissional."</p>
+                    </div>
+                    <div class="flex items-center gap-3 border-t border-gray-50 pt-4 mt-auto">
+                        <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">O</div>
+                        <div>
+                            <p class="font-bold text-dark text-sm">Olavo</p>
+                            <p class="text-xs text-gray-400">Consulta verificada</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <a href="https://www.doctoralia.com.br/marina-marchesotti/psicologo-psicanalista/belo-horizonte#profile-reviews" target="_blank" class="inline-flex items-center text-primary font-bold hover:text-dark transition-colors">
+                    Ler todas as 35 opiniões na Doctoralia <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-sm font-bold tracking-widest text-accent uppercase mb-2">Dúvidas Frequentes</h2>
+                <h3 class="text-3xl sm:text-4xl font-serif font-bold text-dark">Perguntas Respondidas</h3>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <details class="group bg-secondary/5 rounded-2xl border border-secondary/20 [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer font-bold text-dark text-lg">
+                        Como funciona o pagamento? É possível fazer online?
+                        <span class="transition duration-300 group-open:-rotate-180 text-primary">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 leading-relaxed">
+                        Para confirmar seu agendamento é preciso efetuar o pagamento da primeira sessão antecipadamente. Você poderá efetuar por PIX, por transferência bancária ou boleto. O pagamento das demais sessões será combinado na primeira consulta.
+                    </div>
+                </details>
+
+                <!-- FAQ Item 2 -->
+                <details class="group bg-secondary/5 rounded-2xl border border-secondary/20 [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer font-bold text-dark text-lg">
+                        Como devo me preparar para a consulta online (Teleconsulta)?
+                        <span class="transition duration-300 group-open:-rotate-180 text-primary">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 leading-relaxed">
+                        O atendimento é realizado pela plataforma do Google Meet. Alguns minutos antes do horário agendado, enviarei o link do atendimento para o seu WhatsApp. Prepare-se 10 minutos antes em um local silencioso e privativo, e verifique se seu aparelho está com bateria, boa conexão de internet, câmera e microfone funcionando.
+                    </div>
+                </details>
+
+                <!-- FAQ Item 3 -->
+                <details class="group bg-secondary/5 rounded-2xl border border-secondary/20 [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer font-bold text-dark text-lg">
+                        E se eu precisar desmarcar ou se eu me atrasar?
+                        <span class="transition duration-300 group-open:-rotate-180 text-primary">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 leading-relaxed">
+                        A sessão deverá ser cancelada com antecedência de no mínimo 12 horas para reembolso. Caso se atrase, o tempo da consulta não será excedido e a sessão terminará no horário previamente estabelecido (duração média de 50 minutos).
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Localização e Contato -->
+    <section class="py-0 relative">
+        <div class="grid lg:grid-cols-2">
+            <!-- Info Box -->
+            <div class="bg-primary text-white p-10 lg:p-20 flex flex-col justify-center">
+                <h2 class="text-sm font-bold tracking-widest text-secondary uppercase mb-2">Contato</h2>
+                <h3 class="text-3xl sm:text-4xl font-serif font-bold text-white mb-8">Vamos dar o primeiro passo?</h3>
+                
+                <div class="space-y-6">
+                    <div class="flex items-start">
+                        <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center shrink-0 mr-4">
+                            <i class="fa-brands fa-whatsapp text-2xl text-secondary"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg mb-1">WhatsApp / Telefone</h4>
+                            <p class="text-white/80">(31) 98634-2290</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center shrink-0 mr-4">
+                            <i class="fa-solid fa-location-dot text-xl text-secondary"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg mb-1">Consultório</h4>
+                            <p class="text-white/80 leading-relaxed">Rua dos Timbiras, 1940<br>Funcionários, Belo Horizonte - MG<br>CEP: 30140-069</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center shrink-0 mr-4">
+                            <i class="fa-regular fa-clock text-xl text-secondary"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg mb-1">Horário de Atendimento</h4>
+                            <p class="text-white/80">Segunda a Sexta: 08:00 às 20:00<br><span class="text-sm italic opacity-75">Mediante agendamento prévio.</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-10">
+                    <a href="https://wa.me/5531986342290" target="_blank" class="inline-block bg-white text-primary px-8 py-3.5 rounded-full font-bold text-lg hover:bg-secondary transition-all shadow-lg text-center w-full sm:w-auto">
+                        Falar no WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Google Maps -->
+            <div class="h-[400px] lg:h-auto min-h-[400px]">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3750.94132890637!2d-43.9410706!3d-19.9260483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa699e634cb936b%3A0xc34a17ef001da61c!2sR.%20dos%20Timbiras%2C%201940%20-%20Funcion%C3%A1rios%2C%20Belo%20Horizonte%20-%20MG%2C%2030140-069!5e0!3m2!1spt-BR!2sbr!4v1718000000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12 border-t-4 border-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-8">
+                <!-- Brand -->
+                <div class="text-center md:text-left">
+                    <h2 class="text-2xl font-serif font-bold text-secondary mb-2">Marina Marchesotti</h2>
+                    <p class="text-gray-400 text-sm">Psicóloga & Psicanalista • CRP 04/59243</p>
+                </div>
+                
+                <!-- Social Links -->
+                <div class="flex flex-col items-center md:items-end">
+                    <h3 class="font-bold mb-4 text-gray-300 uppercase tracking-wider text-sm">Me acompanhe</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://www.instagram.com/psi.marinamarchesotti/" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary hover:text-dark transition-colors" title="Instagram">
+                            <i class="fa-brands fa-instagram text-xl"></i>
+                        </a>
+                        <a href="https://www.doctoralia.com.br/marina-marchesotti/psicologo-psicanalista/belo-horizonte" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary hover:text-dark transition-colors" title="Doctoralia">
+                            <i class="fa-solid fa-stethoscope text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 mt-10 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                <p>&copy; 2026 Marina Marchesotti. Todos os direitos reservados.</p>
+                <p class="mt-2 md:mt-0">Feito com cuidado para o seu bem-estar.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5531986342290" target="_blank" class="whatsapp-float" aria-label="Entre em contato pelo WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const links = document.querySelectorAll('.mobile-link');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('open');
+            const icon = btn.querySelector('i');
+            if(menu.classList.contains('open')){
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu on link click
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('open');
+                const icon = btn.querySelector('i');
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        // Smooth scroll for anchor links (fallback to native smooth scroll behavior class="scroll-smooth" defined in HTML tag)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target){
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
